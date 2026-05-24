@@ -767,7 +767,7 @@
               <input type="text" id="bm-model" placeholder="e.g. R 1250 GS Adventure" autocomplete="off">
             </div>
             <div class="inquiry-field">
-              <label for="bm-year">Year</label>
+              <label for="bm-year">Year <span style="font-weight:400;opacity:.6">(optional)</span></label>
               <input type="number" id="bm-year" placeholder="e.g. 2021" min="1970" max="2026">
             </div>
           </div>
@@ -925,15 +925,15 @@ function sendInquiry() {
   const year     = document.getElementById('bm-year').value.trim();
   const question = document.getElementById('bm-question').value.trim();
 
-  if (!model || !year || !question) {
-    const first = !model ? 'bm-model' : !year ? 'bm-year' : 'bm-question';
+  if (!model || !question) {
+    const first = !model ? 'bm-model' : 'bm-question';
     document.getElementById(first).focus();
     document.getElementById(first).style.borderColor = '#e05050';
     setTimeout(() => document.getElementById(first).style.borderColor = '', 2000);
     return;
   }
 
-  const msg = `Hi Mirko! I need help with my BMW ${model} (${year}):\n\n${question}\n\nvia jumiparts.com`;
+  const msg = `Hi Mirko! I need help with my BMW ${model}${year ? ` (${year})` : ''}:\n\n${question}\n\nvia jumiparts.com`;
   window.open('https://wa.me/491741886188?text=' + encodeURIComponent(msg), '_blank');
 }
 

@@ -48,7 +48,7 @@
     padding:.85rem 0; position:sticky; top:0; z-index:100;
   }
   .topnav .container { display:flex; align-items:center; justify-content:space-between; gap:1.5rem }
-  .topnav img.logo { height:40px; width:auto; display:block }
+  .topnav img.logo { height:54px; width:auto; display:block }
   .nav-right { display:flex; align-items:center; gap:1.25rem }
   .nav-phone {
     font-family:'Barlow Condensed',sans-serif;
@@ -169,51 +169,60 @@
   .dhl-section {
     background:var(--navy-mid);
     border-bottom:1px solid var(--navy-border);
-    padding:1.35rem 0;
+    padding:1.75rem 0;
   }
   .dhl-inner {
-    display:flex; align-items:center; gap:2rem; flex-wrap:wrap;
+    display:flex; align-items:center; gap:2.5rem; flex-wrap:wrap;
     justify-content:center;
   }
   .dhl-badge {
-    display:inline-flex; align-items:center; gap:.85rem;
+    display:inline-flex; align-items:center; gap:1.1rem;
     background:#ffffff; border:1px solid var(--navy-border);
-    border-radius:6px; padding:.65rem 1.25rem;
+    border-radius:8px; padding:.85rem 1.5rem;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
   }
   .dhl-logo-box {
-    background:transparent;
-    border-radius:4px; padding:0;
+    background:transparent; border-radius:4px; padding:0;
     display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
   .dhl-wordmark {
     font-family:'Barlow Condensed',sans-serif;
-    font-size:1.15rem; font-weight:700; letter-spacing:.08em;
-    line-height:1;
+    font-size:1.15rem; font-weight:700; letter-spacing:.08em; line-height:1;
   }
   .dhl-wordmark .dhl-d { color:var(--dhl-red) }
   .dhl-wordmark .dhl-hl { color:#222 }
   .dhl-express-tag {
     font-family:'Barlow Condensed',sans-serif;
     font-size:.68rem; font-weight:700; letter-spacing:.1em;
-    text-transform:uppercase; color:var(--dhl-red);
-    display:block; margin-top:1px;
+    text-transform:uppercase; color:var(--dhl-red); display:block; margin-top:1px;
   }
-  .dhl-text { font-size:.9rem; color:var(--muted); line-height:1.4 }
-  .dhl-text strong { color:var(--text); display:block; font-size:.96rem }
+  .dhl-text { font-size:1rem; color:var(--muted); line-height:1.4 }
+  .dhl-text strong { color:var(--text); display:block; font-size:1.05rem; margin-bottom:.1rem }
   .dhl-separator {
-    width:1px; height:32px; background:var(--navy-border); flex-shrink:0;
+    width:1px; height:40px; background:var(--navy-border); flex-shrink:0;
   }
-  .dhl-perks {
-    display:flex; gap:1.5rem; flex-wrap:wrap;
-  }
+  .dhl-perks { display:flex; gap:1.75rem; flex-wrap:wrap; }
   .dhl-perk {
-    display:flex; align-items:center; gap:.45rem;
-    font-size:.88rem; color:var(--muted);
+    display:flex; align-items:center; gap:.5rem;
+    font-size:.95rem; color:var(--text);
   }
   .dhl-perk::before {
     content:'✓'; color:var(--blue);
-    font-weight:700; font-size:.9rem;
+    font-weight:700; font-size:1rem;
   }
+  /* Germany badge */
+  .dhl-origin {
+    display:inline-flex; align-items:center; gap:.6rem;
+    background:#fff; border:1px solid var(--navy-border);
+    border-radius:8px; padding:.85rem 1.25rem;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:1rem; font-weight:700; color:var(--text);
+    white-space:nowrap;
+  }
+  .dhl-origin-flag { font-size:1.9rem; line-height:1 }
+  .dhl-origin-text { line-height:1.25 }
+  .dhl-origin-text span { display:block; font-size:.78rem; font-weight:400; color:var(--muted); text-transform:uppercase; letter-spacing:.08em }
 
   /* OWNER */
   .owner-section {
@@ -299,6 +308,52 @@
     color:var(--text); margin-bottom:.6rem; line-height:1.2;
   }
   .step p { font-size:.93rem; color:var(--muted); line-height:1.6 }
+
+  /* INQUIRY FORM */
+  .inquiry-section {
+    background:#ffffff;
+    border-top:1px solid var(--navy-border); border-bottom:1px solid var(--navy-border);
+    padding:var(--sp) 0;
+  }
+  .inquiry-wrap {
+    display:grid; grid-template-columns:1fr 1.6fr; gap:clamp(2rem,5vw,4rem); align-items:start;
+  }
+  .inquiry-intro h2 {
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:clamp(1.8rem,3vw,2.4rem); font-weight:700;
+    color:var(--text); line-height:1.1; margin-bottom:.75rem;
+  }
+  .inquiry-intro p { color:var(--muted); font-size:.95rem; line-height:1.65 }
+  .inquiry-form { display:flex; flex-direction:column; gap:.85rem }
+  .inquiry-row { display:grid; grid-template-columns:1fr 1fr; gap:.85rem }
+  .inquiry-field { display:flex; flex-direction:column; gap:.35rem }
+  .inquiry-field label {
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:.8rem; font-weight:700; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted);
+  }
+  .inquiry-field input,
+  .inquiry-field textarea {
+    width:100%; padding:.7rem .9rem;
+    border:1.5px solid var(--navy-border); border-radius:6px;
+    font-family:'Barlow',sans-serif; font-size:1rem; color:var(--text);
+    background:#fff; outline:none; transition:border-color .15s;
+    resize:vertical;
+  }
+  .inquiry-field input:focus,
+  .inquiry-field textarea:focus { border-color:var(--blue) }
+  .inquiry-field input::placeholder,
+  .inquiry-field textarea::placeholder { color:#a0b4c8 }
+  .btn-send {
+    display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+    background:var(--wa-green); color:#0d1a0d;
+    padding:.9rem 2rem; border-radius:6px; border:none; cursor:pointer;
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:1.1rem; font-weight:700; letter-spacing:.05em;
+    text-transform:uppercase; transition:opacity .15s; width:100%;
+  }
+  .btn-send:hover { opacity:.88 }
+  .inquiry-note { font-size:.8rem; color:var(--muted); text-align:center; margin-top:.2rem }
 
   /* STORIES */
   .stories-section {
@@ -494,6 +549,8 @@
     .dhl-inner { gap:1rem }
     .gr-quotes { grid-template-columns:repeat(2,1fr) }
     .gr-inner { flex-direction:column; gap:2rem }
+    .inquiry-wrap { grid-template-columns:1fr }
+    .inquiry-row { grid-template-columns:1fr 1fr }
   }
   @media(max-width:560px){
     .gr-quotes { grid-template-columns:1fr }
@@ -504,6 +561,7 @@
     .nav-phone { display:none }
     .dhl-perks { gap:1rem }
     .nav-shop { display:none }
+    .inquiry-row { grid-template-columns:1fr }
   }
 </style>
 </head>
@@ -573,7 +631,7 @@
   <div class="dhl-inner">
     <div class="dhl-badge">
       <div class="dhl-logo-box">
-        <img src="images/dhl-logo.png" alt="DHL Express" height="36" style="display:block">
+        <img src="images/dhl-logo.png" alt="DHL Express" height="48" style="display:block">
       </div>
       <div class="dhl-text">
         <strong>Ships via DHL Express</strong>
@@ -582,10 +640,18 @@
     </div>
     <div class="dhl-separator"></div>
     <div class="dhl-perks">
-      <span class="dhl-perk">Negotiated rates – we pass savings on</span>
+      <span class="dhl-perk">Negotiated rates – savings passed on</span>
       <span class="dhl-perk">US, AU, CA typically 3–5 days</span>
       <span class="dhl-perk">Export VAT removed at checkout</span>
       <span class="dhl-perk">Emergency overnight available</span>
+    </div>
+    <div class="dhl-separator"></div>
+    <div class="dhl-origin">
+      <span class="dhl-origin-flag">🇩🇪</span>
+      <div class="dhl-origin-text">
+        Original BMW Parts<br>
+        <span>Dispatched from Germany</span>
+      </div>
     </div>
   </div>
 </div>
@@ -671,6 +737,41 @@
         <p class="step-num">Step 03</p>
         <h3>Ships from Germany</h3>
         <p>Dispatched within 24 hours from our German warehouse. DHL Express worldwide, customs handled.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section class="inquiry-section">
+  <div class="container">
+    <div class="inquiry-wrap">
+      <div class="inquiry-intro">
+        <p class="section-eyebrow">Start your inquiry</p>
+        <h2>Tell Mirko about your BMW</h2>
+        <p>Fill in the three fields and hit Send — your message lands directly in WhatsApp. Mirko replies within 2 hours on weekdays.</p>
+        <p style="margin-top:.75rem"><strong style="color:var(--text)">No forms, no tickets, no waiting room.</strong> Just a direct conversation with someone who knows BMWs.</p>
+      </div>
+      <div class="inquiry-form">
+        <div class="inquiry-row">
+          <div class="inquiry-field">
+            <label for="bm-model">BMW Model</label>
+            <input type="text" id="bm-model" placeholder="e.g. R 1250 GS Adventure" autocomplete="off">
+          </div>
+          <div class="inquiry-field">
+            <label for="bm-year">Year</label>
+            <input type="number" id="bm-year" placeholder="e.g. 2021" min="1970" max="2026">
+          </div>
+        </div>
+        <div class="inquiry-field">
+          <label for="bm-question">What do you need?</label>
+          <textarea id="bm-question" rows="3" placeholder="Describe the part, problem, or question — a photo description works too."></textarea>
+        </div>
+        <button class="btn-send" onclick="sendInquiry()">
+          <svg class="wa-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          Send to Mirko on WhatsApp
+        </button>
+        <p class="inquiry-note">Clicking Send opens WhatsApp with your message pre-filled — nothing is sent until you press Send in WhatsApp.</p>
       </div>
     </div>
   </div>
@@ -808,5 +909,29 @@
   </div>
 </section>
 
+<script>
+function sendInquiry() {
+  const model    = document.getElementById('bm-model').value.trim();
+  const year     = document.getElementById('bm-year').value.trim();
+  const question = document.getElementById('bm-question').value.trim();
+
+  if (!model || !year || !question) {
+    const first = !model ? 'bm-model' : !year ? 'bm-year' : 'bm-question';
+    document.getElementById(first).focus();
+    document.getElementById(first).style.borderColor = '#e05050';
+    setTimeout(() => document.getElementById(first).style.borderColor = '', 2000);
+    return;
+  }
+
+  const msg = `Hi Mirko! I need help with my BMW ${model} (${year}):\n\n${question}\n\n– sent via jumiparts.com`;
+  window.open('https://wa.me/491741886188?text=' + encodeURIComponent(msg), '_blank');
+}
+
+['bm-model','bm-year','bm-question'].forEach(id => {
+  document.getElementById(id).addEventListener('input', function() {
+    this.style.borderColor = '';
+  });
+});
+</script>
 </body>
 </html>

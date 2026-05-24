@@ -283,8 +283,7 @@
   .phone-display a { color:var(--text); text-decoration:none }
   .phone-display a:hover { color:var(--blue-light) }
 
-  /* HOW */
-  .how-section { padding:var(--sp) 0 }
+  /* SECTION HEADER (shared) */
   .section-header { text-align:center; margin-bottom:clamp(2.5rem,5vw,4rem) }
   .section-header h2 {
     font-family:'Barlow Condensed',sans-serif;
@@ -292,38 +291,39 @@
     color:var(--text); margin-bottom:.7rem; line-height:1.1;
   }
   .section-header p { color:var(--muted); max-width:480px; margin:0 auto }
-  .steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem }
-  .step {
-    background:var(--navy-card); border:1px solid var(--navy-border);
-    border-radius:8px; padding:2rem 1.75rem;
-  }
-  .step-num {
-    font-family:'Barlow Condensed',sans-serif;
-    font-size:.8rem; font-weight:700; letter-spacing:.12em;
-    color:var(--blue); margin-bottom:1rem; text-transform:uppercase;
-  }
-  .step h3 {
-    font-family:'Barlow Condensed',sans-serif;
-    font-size:1.3rem; font-weight:700;
-    color:var(--text); margin-bottom:.6rem; line-height:1.2;
-  }
-  .step p { font-size:.93rem; color:var(--muted); line-height:1.6 }
 
-  /* INQUIRY FORM */
-  .inquiry-section {
+  /* PROCESS + FORM (combined) */
+  .process-section {
     background:#ffffff;
     border-top:1px solid var(--navy-border); border-bottom:1px solid var(--navy-border);
     padding:var(--sp) 0;
   }
-  .inquiry-wrap {
-    display:grid; grid-template-columns:1fr 1.6fr; gap:clamp(2rem,5vw,4rem); align-items:start;
+  .process-wrap {
+    display:grid; grid-template-columns:1fr 1.55fr;
+    gap:clamp(2rem,5vw,4.5rem); align-items:start;
   }
-  .inquiry-intro h2 {
+  .process-steps { display:flex; flex-direction:column; gap:1.6rem; margin-bottom:1.5rem }
+  .process-step { display:flex; gap:1.1rem; align-items:flex-start }
+  .process-step-num {
     font-family:'Barlow Condensed',sans-serif;
-    font-size:clamp(1.8rem,3vw,2.4rem); font-weight:700;
-    color:var(--text); line-height:1.1; margin-bottom:.75rem;
+    font-size:2.2rem; font-weight:700; color:var(--blue);
+    line-height:1; opacity:.18; min-width:2.6rem; flex-shrink:0;
   }
-  .inquiry-intro p { color:var(--muted); font-size:.95rem; line-height:1.65 }
+  .process-step-body strong {
+    display:block; font-family:'Barlow Condensed',sans-serif;
+    font-size:1.15rem; font-weight:700; color:var(--text); margin-bottom:.25rem;
+  }
+  .process-step-body span { font-size:.9rem; color:var(--muted); line-height:1.55 }
+  .process-photo {
+    border-radius:8px; overflow:hidden; height:190px;
+  }
+  .process-photo img { width:100%; height:100%; object-fit:cover; display:block }
+  .process-form-title {
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:clamp(1.6rem,2.5vw,2rem); font-weight:700;
+    color:var(--text); line-height:1.1; margin-bottom:.5rem;
+  }
+  .process-form-sub { color:var(--muted); font-size:.93rem; margin-bottom:1.1rem; line-height:1.55 }
   .inquiry-form { display:flex; flex-direction:column; gap:.85rem }
   .inquiry-row { display:grid; grid-template-columns:1fr 1fr; gap:.85rem }
   .inquiry-field { display:flex; flex-direction:column; gap:.35rem }
@@ -542,14 +542,15 @@
     .bike-gallery-grid a:first-child { grid-row:auto }
     .group-photo-wrap { height:260px }
     .owner-grid,.lang-grid { grid-template-columns:1fr }
-    .steps-grid,.stories-grid { grid-template-columns:1fr }
+    .stories-grid { grid-template-columns:1fr }
     .lang-grid { gap:2.5rem }
     .trust-item { min-width:120px }
     .dhl-separator { display:none }
     .dhl-inner { gap:1rem }
     .gr-quotes { grid-template-columns:repeat(2,1fr) }
     .gr-inner { flex-direction:column; gap:2rem }
-    .inquiry-wrap { grid-template-columns:1fr }
+    .process-wrap { grid-template-columns:1fr }
+    .process-photo { height:240px }
     .inquiry-row { grid-template-columns:1fr 1fr }
   }
   @media(max-width:560px){
@@ -714,65 +715,74 @@
   </div>
 </div>
 
-<!-- HOW IT WORKS -->
-<section class="how-section">
+<!-- HOW IT WORKS + INQUIRY FORM (combined) -->
+<section class="process-section">
   <div class="container">
     <div class="section-header">
       <p class="section-eyebrow" style="justify-content:center;margin-bottom:.7rem;">Simple process</p>
-      <h2>From question to doorstep in 3 steps</h2>
+      <h2>From question to doorstep</h2>
       <p>Send a message. We take it from there.</p>
     </div>
-    <div class="steps-grid">
-      <div class="step">
-        <p class="step-num">Step 01</p>
-        <h3>Tell us your bike</h3>
-        <p>Model, year, and what you need via WhatsApp or call. A photo of the broken part always helps.</p>
-      </div>
-      <div class="step">
-        <p class="step-num">Step 02</p>
-        <h3>We confirm the right fit</h3>
-        <p>We check part numbers and compatibility. Direct answer within 2 hours.</p>
-      </div>
-      <div class="step">
-        <p class="step-num">Step 03</p>
-        <h3>Ships from Germany</h3>
-        <p>Out of our German warehouse within 24 hours. DHL Express worldwide, customs handled.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="process-wrap">
 
-<!-- INQUIRY FORM -->
-<section class="inquiry-section">
-  <div class="container">
-    <div class="inquiry-wrap">
-      <div class="inquiry-intro">
-        <p class="section-eyebrow">Start your inquiry</p>
-        <h2>Tell Mirko about your BMW</h2>
-        <p>Fill in the fields and hit Send. Your message goes straight to WhatsApp, Mirko replies within 2 hours on weekdays.</p>
-        <p style="margin-top:.75rem"><strong style="color:var(--text)">No forms, no tickets.</strong> Just a direct conversation with someone who knows BMWs.</p>
-      </div>
-      <div class="inquiry-form">
-        <div class="inquiry-row">
-          <div class="inquiry-field">
-            <label for="bm-model">BMW Model</label>
-            <input type="text" id="bm-model" placeholder="e.g. R 1250 GS Adventure" autocomplete="off">
+      <!-- LEFT: steps + bike photo -->
+      <div class="process-left">
+        <div class="process-steps">
+          <div class="process-step">
+            <span class="process-step-num">01</span>
+            <div class="process-step-body">
+              <strong>Tell us your bike</strong>
+              <span>Model, year, and what you need. A photo of the broken part always helps.</span>
+            </div>
           </div>
-          <div class="inquiry-field">
-            <label for="bm-year">Year</label>
-            <input type="number" id="bm-year" placeholder="e.g. 2021" min="1970" max="2026">
+          <div class="process-step">
+            <span class="process-step-num">02</span>
+            <div class="process-step-body">
+              <strong>We confirm the fit</strong>
+              <span>Part numbers, compatibility, availability. Direct answer within 2 hours.</span>
+            </div>
+          </div>
+          <div class="process-step">
+            <span class="process-step-num">03</span>
+            <div class="process-step-body">
+              <strong>Ships from Germany</strong>
+              <span>Out of our warehouse within 24 hours. DHL Express worldwide, customs handled.</span>
+            </div>
           </div>
         </div>
-        <div class="inquiry-field">
-          <label for="bm-question">What do you need?</label>
-          <textarea id="bm-question" rows="3" placeholder="Describe the part, problem, or question — a photo description works too."></textarea>
+        <div class="process-photo">
+          <img src="images/bike2.jpg" alt="BMW GS front view at dusk" loading="lazy">
         </div>
-        <button class="btn-send" onclick="sendInquiry()">
-          <svg class="wa-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-          Send to Mirko on WhatsApp
-        </button>
-        <p class="inquiry-note">Opens WhatsApp with your message pre-filled. Nothing sends until you confirm.</p>
       </div>
+
+      <!-- RIGHT: form -->
+      <div class="process-form-side">
+        <p class="section-eyebrow" style="margin-bottom:.6rem;">Start here</p>
+        <h3 class="process-form-title">Tell Mirko about your BMW</h3>
+        <p class="process-form-sub">Your message goes straight to WhatsApp. Reply within 2 hours on weekdays.</p>
+        <div class="inquiry-form">
+          <div class="inquiry-row">
+            <div class="inquiry-field">
+              <label for="bm-model">BMW Model</label>
+              <input type="text" id="bm-model" placeholder="e.g. R 1250 GS Adventure" autocomplete="off">
+            </div>
+            <div class="inquiry-field">
+              <label for="bm-year">Year</label>
+              <input type="number" id="bm-year" placeholder="e.g. 2021" min="1970" max="2026">
+            </div>
+          </div>
+          <div class="inquiry-field">
+            <label for="bm-question">What do you need?</label>
+            <textarea id="bm-question" rows="4" placeholder="Describe the part, problem, or question. A photo description works too."></textarea>
+          </div>
+          <button class="btn-send" onclick="sendInquiry()">
+            <svg class="wa-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            Send to Mirko on WhatsApp
+          </button>
+          <p class="inquiry-note">Opens WhatsApp with your message pre-filled. Nothing sends until you confirm.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

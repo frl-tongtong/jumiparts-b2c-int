@@ -327,8 +327,8 @@
     padding:var(--sp) 0;
   }
   .gr-inner {
-    display:flex; align-items:center; gap:clamp(2rem,6vw,5rem);
-    flex-wrap:wrap; justify-content:center;
+    display:flex; align-items:flex-start; gap:clamp(2rem,5vw,4rem);
+    flex-wrap:wrap;
   }
   .gr-left {
     display:flex; flex-direction:column; align-items:center;
@@ -365,21 +365,31 @@
   }
   .gr-btn:hover { opacity:.88 }
   .gr-quotes {
-    display:grid; grid-template-columns:repeat(2,1fr); gap:1.1rem;
-    max-width:580px;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1.1rem;
+    flex:1; min-width:0;
   }
   .gr-quote {
     background:#f8fafc; border:1px solid var(--navy-border);
     border-radius:8px; padding:1.2rem 1.3rem;
+    display:flex; flex-direction:column;
   }
-  .gr-quote-stars { font-size:.9rem; color:#FBBC05; margin-bottom:.5rem }
+  .gr-quote-img {
+    width:100%; height:110px; object-fit:cover;
+    border-radius:5px; margin-bottom:.75rem; display:block;
+  }
+  .gr-quote-stars { font-size:.9rem; color:#FBBC05; margin-bottom:.5rem; flex-shrink:0 }
   .gr-quote blockquote {
     font-size:.88rem; color:var(--text); line-height:1.6;
     font-style:italic; border-left:2px solid #4285F4; padding-left:.75rem;
-    margin-bottom:.6rem;
+    margin-bottom:.6rem; flex:1;
   }
-  .gr-quote-meta { font-size:11px; color:var(--muted) }
+  .gr-quote-meta { font-size:11px; color:var(--muted); flex-shrink:0 }
   .gr-quote-meta strong { color:var(--text); display:block; font-size:.82rem }
+  .gr-readmore {
+    grid-column:1/-1; text-align:center; padding:1rem;
+    border:1.5px dashed var(--navy-border); border-radius:8px;
+    background:#f0f6fc;
+  }
 
   /* LANG */
   .lang-section { padding:var(--sp) 0 }
@@ -439,8 +449,11 @@
     .trust-item { min-width:120px }
     .dhl-separator { display:none }
     .dhl-inner { gap:1rem }
+    .gr-quotes { grid-template-columns:repeat(2,1fr) }
+    .gr-inner { flex-direction:column; gap:2rem }
+  }
+  @media(max-width:560px){
     .gr-quotes { grid-template-columns:1fr }
-    .gr-inner { flex-direction:column }
   }
   @media(max-width:600px){
     .cta-group,.owner-cta,.final-cta .cta-group { flex-direction:column }
@@ -644,22 +657,38 @@
       </div>
       <div class="gr-quotes">
         <div class="gr-quote">
+          <img class="gr-quote-img" src="reviews/unnamed.webp" alt="BMW part from Jumiparts customer">
           <div class="gr-quote-stars">★★★★★</div>
-          <blockquote>"Super fast shipping, flawless goods at a fair price — and they even threw in extra screws! Can't get better than this!"</blockquote>
-          <div class="gr-quote-meta"><strong>Werner Maier</strong>Vienna, Austria · 5 months ago</div>
+          <blockquote>"Super fast and competent service! Everything explained clearly and understandably. TOP!"</blockquote>
+          <div class="gr-quote-meta"><strong>Benjamin Weih</strong>Local Guide · 3 weeks ago</div>
         </div>
         <div class="gr-quote">
           <div class="gr-quote-stars">★★★★★</div>
-          <blockquote>"All great! Fast delivery, top quality goods. No fuss — happy to order again."</blockquote>
-          <div class="gr-quote-meta"><strong>Matthias Gramsch</strong>Google Review · 9 months ago</div>
+          <blockquote>"Ultimately a top experience. I ordered on Christmas Day. When the delivery didn't arrive I called — Mr. Schiers spotted I needed a different tank ring for my model and shipped the right one the very next day. Great value. See you next time!"</blockquote>
+          <div class="gr-quote-meta"><strong>Nils Wilken</strong>Local Guide · 1 year ago</div>
         </div>
         <div class="gr-quote">
           <div class="gr-quote-stars">★★★★★</div>
-          <blockquote>"Exceptionally good, very solution-oriented support! Reliable, high quality and fast. Perfect!"</blockquote>
-          <div class="gr-quote-meta"><strong>R.F.</strong>Google Review · 3 months ago</div>
+          <blockquote>"Great price, ordered yesterday, delivered today, seat pan in as-new condition. More like 7 stars."</blockquote>
+          <div class="gr-quote-meta"><strong>Fz Ml</strong>Local Guide · 1 year ago</div>
         </div>
-        <div class="gr-quote" style="background:#f0f6fc;border-style:dashed;display:flex;align-items:center;justify-content:center;text-align:center;">
-          <a href="https://share.google/1hHqROoXcD8ZYZopr" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;font-size:.88rem;font-weight:600;line-height:1.5;">Read all 75 reviews<br>on Google →</a>
+        <div class="gr-quote">
+          <div class="gr-quote-stars">★★★★★</div>
+          <blockquote>"Excellent! Top communication, super fast delivery, top quality! Can't be beaten! (Pirelli Angel GT front tyre)"</blockquote>
+          <div class="gr-quote-meta"><strong>Frank T.</strong>Google Review · 4 years ago</div>
+        </div>
+        <div class="gr-quote">
+          <div class="gr-quote-stars">★★★★★</div>
+          <blockquote>"Best customer service — the only place I go for Ilmberger carbon parts 👌"</blockquote>
+          <div class="gr-quote-meta"><strong>Mike 6Fix</strong>Local Guide · 3 years ago</div>
+        </div>
+        <div class="gr-quote">
+          <div class="gr-quote-stars">★★★★★</div>
+          <blockquote>"Fast delivery, top item, everything fitted perfectly. Nice conversation — couldn't ask for more. Happy to return."</blockquote>
+          <div class="gr-quote-meta"><strong>Georg Schinkewitz</strong>Local Guide · 1 year ago</div>
+        </div>
+        <div class="gr-readmore">
+          <a href="https://share.google/1hHqROoXcD8ZYZopr" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none;font-size:.92rem;font-weight:700;">Read all 75 reviews on Google →</a>
         </div>
       </div>
     </div>

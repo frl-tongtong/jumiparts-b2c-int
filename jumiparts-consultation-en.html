@@ -329,9 +329,9 @@
   }
   .process-step-body span { font-size:.9rem; color:var(--muted); line-height:1.55 }
   .process-photo {
-    border-radius:8px; overflow:hidden; height:190px;
+    border-radius:8px; overflow:hidden; height:340px;
   }
-  .process-photo img, .process-photo video { width:100%; height:100%; object-fit:cover; display:block }
+  .process-photo img, .process-photo video { width:100%; height:100%; object-fit:cover; object-position:center top; display:block }
   .process-form-title {
     font-family:'Barlow Condensed',sans-serif;
     font-size:clamp(1.6rem,2.5vw,2rem); font-weight:700;
@@ -569,7 +569,7 @@
     .gr-quotes { grid-template-columns:repeat(2,1fr) }
     .gr-inner { flex-direction:column; gap:2rem }
     .process-wrap { grid-template-columns:1fr }
-    .process-photo { height:240px }
+    .process-photo { height:320px }
     .inquiry-row { grid-template-columns:1fr 1fr }
   }
   @media(max-width:560px){

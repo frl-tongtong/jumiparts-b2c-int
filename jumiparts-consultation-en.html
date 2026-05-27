@@ -219,6 +219,30 @@
   .dhl-origin-text { line-height:1.25 }
   .dhl-origin-text span { display:block; font-size:.78rem; font-weight:400; color:var(--muted); text-transform:uppercase; letter-spacing:.08em }
 
+  /* BRANDS STRIP */
+  .brands-section {
+    background:var(--navy-mid);
+    border-bottom:1px solid var(--navy-border);
+    padding:1rem 0;
+  }
+  .brands-section .container {
+    display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;
+  }
+  .brands-label {
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:.72rem; font-weight:700; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--muted);
+    white-space:nowrap; flex-shrink:0;
+  }
+  .brands-list { display:flex; flex-wrap:wrap; gap:.45rem; align-items:center }
+  .brand-chip {
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:.88rem; font-weight:700; letter-spacing:.03em;
+    color:var(--text); background:var(--navy-card);
+    border:1px solid var(--navy-border); border-radius:4px;
+    padding:.28rem .75rem; white-space:nowrap;
+  }
+
   /* OWNER */
   .owner-section {
     background:#ffffff; padding:var(--sp) 0;
@@ -505,6 +529,21 @@
   .response-note { margin-top:1.4rem; font-size:12px; color:rgba(255,255,255,.55) }
   .response-note .dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--wa-green); margin-right:.4rem; vertical-align:middle }
 
+  /* PRODUCTS (uncomment with the HTML block when ready) */
+  /*
+  .products-section { background:var(--navy-mid); border-top:1px solid var(--navy-border); border-bottom:1px solid var(--navy-border); padding:var(--sp) 0; }
+  .products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.1rem }
+  .product-card { background:var(--navy-card); border:1px solid var(--navy-border); border-radius:8px; overflow:hidden; text-decoration:none; display:flex; flex-direction:column; transition:box-shadow .15s }
+  .product-card:hover { box-shadow:0 4px 16px rgba(0,0,0,.10) }
+  .product-img-wrap { height:200px; overflow:hidden; background:#f0f4f8 }
+  .product-img-wrap img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s }
+  .product-card:hover .product-img-wrap img { transform:scale(1.04) }
+  .product-label { padding:.85rem 1rem; font-family:'Barlow Condensed',sans-serif; font-size:1rem; font-weight:700; color:var(--text); line-height:1.2 }
+  .product-label span { display:block; font-size:.8rem; font-weight:400; color:var(--muted); margin-top:.2rem }
+  @media(max-width:860px){ .products-grid { grid-template-columns:repeat(2,1fr) } }
+  @media(max-width:500px){ .products-grid { grid-template-columns:1fr } }
+  */
+
   /* FOOTER */
   .site-footer {
     background:var(--navy); padding:1.1rem 0;
@@ -632,6 +671,22 @@
   </div>
 </div>
 
+<!-- BRANDS STRIP -->
+<div class="brands-section">
+  <div class="container">
+    <span class="brands-label">Brands we stock</span>
+    <div class="brands-list">
+      <span class="brand-chip">BMW Motorrad OEM</span>
+      <span class="brand-chip">Hepco &amp; Becker</span>
+      <span class="brand-chip">Ilmberger Carbon</span>
+      <span class="brand-chip">Touratech</span>
+      <span class="brand-chip">SW-Motech</span>
+      <span class="brand-chip">Akrapovic</span>
+      <span class="brand-chip">Wunderlich</span>
+    </div>
+  </div>
+</div>
+
 <!-- OWNER -->
 <section class="owner-section">
   <div class="container">
@@ -670,17 +725,17 @@
 <!-- BIKE GALLERY -->
 <div class="bike-gallery">
   <div class="bike-gallery-grid">
-    <a href="images/bike3.jpg" target="_blank">
-      <img src="images/bike3.jpg" alt="Mirko's BMW R1200GS touring in Norway" loading="lazy">
+    <a href="images/jumiparts.de1.jpg" target="_blank">
+      <img src="images/jumiparts.de1.jpg" alt="Jumiparts BMW R1250GS at sunset in Germany" loading="lazy">
     </a>
-    <a href="images/bike1.jpg" target="_blank">
-      <img src="images/bike1.jpg" alt="BMW GS at sunset on a country road" loading="lazy">
+    <a href="images/ConnectedRide.jpg" target="_blank">
+      <img src="images/ConnectedRide.jpg" alt="Jumiparts BMW GS touring the Scandinavian coast" loading="lazy">
     </a>
-    <a href="images/bike2.jpg" target="_blank">
-      <img src="images/bike2.jpg" alt="BMW GS front view at dusk" loading="lazy">
+    <a href="images/Desertio.jpg" target="_blank">
+      <img src="images/Desertio.jpg" alt="Jumiparts BMW GS at a North Sea harbor" loading="lazy">
     </a>
   </div>
-  <p class="bike-caption">Mirko rides what he sells. His GS has covered Germany, Scandinavia, and beyond.</p>
+  <p class="bike-caption">Mirko's GS — fully kitted with the accessories he stocks. Germany, Scandinavia, and beyond.</p>
 </div>
 
 <!-- GROUP RIDE -->
@@ -691,6 +746,54 @@
     Mirko rides with the BMW community, which is why he knows which parts actually matter.
   </div>
 </div>
+
+<!--
+=======================================================================
+PRODUCT SHOWCASE — uncomment and fill in image paths when ready
+Add 4–6 product photos (parts + gear). Suggested layout: 3-column grid.
+=======================================================================
+<section class="products-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow" style="justify-content:center;margin-bottom:.7rem;">What we stock</p>
+      <h2>Parts, gear, and accessories</h2>
+      <p>Original and aftermarket — for every GS, RT, and S from any year.</p>
+    </div>
+    <div class="products-grid">
+      <a href="https://www.jumiparts.com/" class="product-card" target="_blank" rel="noopener">
+        <div class="product-img-wrap"><img src="images/REPLACE-ME.jpg" alt="Product name" loading="lazy"></div>
+        <div class="product-label">Product Name<span>Brand</span></div>
+      </a>
+      <a href="https://www.jumiparts.com/" class="product-card" target="_blank" rel="noopener">
+        <div class="product-img-wrap"><img src="images/REPLACE-ME.jpg" alt="Product name" loading="lazy"></div>
+        <div class="product-label">Product Name<span>Brand</span></div>
+      </a>
+      <a href="https://www.jumiparts.com/" class="product-card" target="_blank" rel="noopener">
+        <div class="product-img-wrap"><img src="images/REPLACE-ME.jpg" alt="Product name" loading="lazy"></div>
+        <div class="product-label">Product Name<span>Brand</span></div>
+      </a>
+      <a href="https://www.jumiparts.com/" class="product-card" target="_blank" rel="noopener">
+        <div class="product-img-wrap"><img src="images/REPLACE-ME.jpg" alt="Product name" loading="lazy"></div>
+        <div class="product-label">Product Name<span>Brand</span></div>
+      </a>
+      <a href="https://www.jumiparts.com/" class="product-card" target="_blank" rel="noopener">
+        <div class="product-img-wrap"><img src="images/REPLACE-ME.jpg" alt="Product name" loading="lazy"></div>
+        <div class="product-label">Product Name<span>Brand</span></div>
+      </a>
+      <a href="https://www.jumiparts.com/" class="product-card" target="_blank" rel="noopener">
+        <div class="product-img-wrap"><img src="images/REPLACE-ME.jpg" alt="Product name" loading="lazy"></div>
+        <div class="product-label">Product Name<span>Brand</span></div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:2rem">
+      <a href="https://www.jumiparts.com/" class="btn btn-wa" target="_blank" rel="noopener" style="display:inline-flex;">Browse all products</a>
+    </div>
+  </div>
+</section>
+=======================================================================
+END PRODUCT SHOWCASE
+=======================================================================
+-->
 
 <!-- HOW IT WORKS + INQUIRY FORM (combined) -->
 <section class="process-section">

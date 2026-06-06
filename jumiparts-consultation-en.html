@@ -368,6 +368,11 @@
   }
   .btn-send:hover { opacity:.88 }
   .inquiry-note { font-size:.8rem; color:var(--muted); text-align:center; margin-top:.2rem }
+  .vin-tip {
+    font-size:.78rem; color:var(--muted); line-height:1.5; margin-top:.4rem;
+    padding:.5rem .75rem; background:#f0f6fc;
+    border-left:3px solid var(--blue); border-radius:0 3px 3px 0;
+  }
 
   /* BIKE GALLERY */
   .bike-gallery { background:#0c121e; line-height:0 }
@@ -845,6 +850,11 @@
             </div>
           </div>
           <div class="inquiry-field">
+            <label for="bm-vin">VIN / Frame Number <span style="font-weight:400;opacity:.6">(optional)</span></label>
+            <input type="text" id="bm-vin" placeholder="e.g. WB10309A0BZW12345" maxlength="17" autocomplete="off" style="letter-spacing:.05em">
+            <p class="vin-tip">The VIN is the 17-character code on your registration document or stamped into the frame. It lets Mirko confirm the exact variant — BMW changed part specs mid-run on many models.</p>
+          </div>
+          <div class="inquiry-field">
             <label for="bm-question">What do you need?</label>
             <textarea id="bm-question" rows="4" placeholder="Describe the part, problem, or question. A photo description works too."></textarea>
           </div>
@@ -978,6 +988,7 @@
 function sendInquiry() {
   const model    = document.getElementById('bm-model').value.trim();
   const year     = document.getElementById('bm-year').value.trim();
+  const vin      = document.getElementById('bm-vin').value.trim();
   const question = document.getElementById('bm-question').value.trim();
 
   if (!model || !question) {
@@ -988,11 +999,11 @@ function sendInquiry() {
     return;
   }
 
-  const msg = `Hi Mirko! I need help with my BMW ${model}${year ? ` (${year})` : ''}:\n\n${question}\n\nvia jumiparts.com`;
+  const msg = `Hi Mirko! I need help with my BMW ${model}${year ? ` (${year})` : ''}${vin ? `\nVIN: ${vin}` : ''}:\n\n${question}\n\nvia jumiparts.com`;
   window.open('https://wa.me/491741886188?text=' + encodeURIComponent(msg), '_blank');
 }
 
-['bm-model','bm-year','bm-question'].forEach(id => {
+['bm-model','bm-year','bm-vin','bm-question'].forEach(id => {
   document.getElementById(id).addEventListener('input', function() {
     this.style.borderColor = '';
   });

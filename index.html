@@ -1031,6 +1031,7 @@ function sendInquiry() {
   }
 
   const msg = `Hi Mirko! I need help with my BMW ${model}${year ? ` (${year})` : ''}${vin ? `\nVIN: ${vin}` : ''}:\n\n${question}\n\nvia jumiparts.com`;
+  gtag('event', 'conversion', { 'send_to': 'AW-790477741/LO5VCJfHprocEK339vgC' });
   window.open('https://wa.me/491741886188?text=' + encodeURIComponent(msg), '_blank');
 }
 
